@@ -127,10 +127,10 @@ $(document).ready(function () {
             duration: 2.0,
             ease: "power3.out"
         }
-    }).fromTo(".js-banner-svg", { opacity: 0 }, { opacity: 1 }).fromTo(".gsap-up", { y: 100 }, { y: 0 }, "<")
+    }).fromTo(".js-banner-svg", { autoAlpha: 0 }, { autoAlpha: 1 }).fromTo(".gsap-up", { y: 100 }, { y: 0 }, "<")
 
     //    .from(background, {backgroundPosition:"60% 0%", filter:"brightness(0.1)", duration:1})
-    .fromTo(".gsap-left2right", { x: -100 }, { x: 0, stagger: 0.1 }, "<").fromTo(".gsap-fade", { opacity: 0 }, { opacity: 1 }, "<").to(".home-line", { scaleX: 1 }, "<").from(".navbar-brand", { x: -30 }, "<").from(".stax-hamberg", { x: 30 }, "<").from(".menu__footer__social", { x: -30 }, "<").from(".Nk-scroll", { x: 30 }, "<").to(".home-line", { autoAlpha: 0 });
+    .fromTo(".gsap-left2right", { x: -100 }, { x: 0, stagger: 0.1 }, "<").fromTo(".gsap-fade", { autoAlpha: 0 }, { autoAlpha: 1 }, "<").to(".home-line", { scaleX: 1 }, "<").from(".navbar-brand", { x: -30 }, "<").from(".stax-hamberg", { x: 30 }, "<").from(".menu__footer__social", { x: -30 }, "<").from(".Nk-scroll", { x: 30 }, "<").to(".home-line", { autoAlpha: 0 });
 
     //our story
 
@@ -153,7 +153,7 @@ $(document).ready(function () {
             duration: 2.0,
             ease: "power3.out"
         }
-    }).fromTo(".gsap-left2right-approch_logo", { opacity: 0, x: -50 }, { opacity: 1, x: 0 }).fromTo(".gsap-left2right-approch", { opacity: 0, x: -40 }, { opacity: 1, x: 0, stagger: 0.2 }, "<").from(".gsap-text-reveal", { y: -100, autoAlpha: 0 }, "<");
+    }).fromTo(".gsap-left2right-approch_logo", { autoAlpha: 0, x: -50 }, { autoAlpha: 1, x: 0 }).fromTo(".gsap-left2right-approch", { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, stagger: 0.2 }, "<").from(".gsap-text-reveal", { y: -100, autoAlpha: 0 }, "<");
     // .from(childSplit.lines, {
     //     duration: 2,
     //     yPercent: -100,
@@ -168,7 +168,7 @@ $(document).ready(function () {
             duration: 2.0,
             ease: "power3.out"
         }
-    }).fromTo(".gsap-top2bottom", { opacity: 0, y: -30 }, { opacity: 1, y: 0, stagger: 0.1 }, 0).fromTo(".gsap-fade", { opacity: 0 }, { opacity: 1 });
+    }).fromTo(".gsap-top2bottom", { autoAlpha: 0, y: -30 }, { autoAlpha: 1, y: 0, stagger: 0.1 }, 0).fromTo(".gsap-fade", { autoAlpha: 0 }, { autoAlpha: 1 });
     var t5 = gsap.timeline({
         defaults: {
             duration: 2.0,
@@ -201,7 +201,7 @@ $(document).ready(function () {
     //     yPercent: -100,
     //     stagger: 0.1
     // })
-    .fromTo(".gsap-left-right", { x: -50 }, { x: 0, stagger: 0.1 }, "<").fromTo(".gsap-hide", { opacity: 0 }, { opacity: 1 }, "<").to(".home-line-plateform", { scaleX: 1 }, "<").from(".gsap-fade-up", { y: 50 }, "<").to(".home-line-plateform", { autoAlpha: 0 });
+    .fromTo(".gsap-left-right", { x: -50 }, { x: 0, stagger: 0.1 }, "<").fromTo(".gsap-hide", { autoAlpha: 0 }, { autoAlpha: 1 }, "<").to(".home-line-plateform", { scaleX: 1 }, "<").from(".gsap-fade-up", { y: 50 }, "<").to(".home-line-plateform", { autoAlpha: 0 });
 
     t7.pause();
 
@@ -210,7 +210,7 @@ $(document).ready(function () {
             duration: 2.0,
             ease: "power3.out"
         }
-    }).fromTo(".gsap-left", { x: -50 }, { x: 0, stagger: 0.1 }).fromTo(".gsap-right-left", { x: 50 }, { x: 0, stagger: 0.1 }, "<").fromTo(".gsap-hide", { opacity: 0 }, { opacity: 1 }, "<").from(".representative__patch", { width: 0, duration: 2 }, "<").from(".representative__slider__text p", { y: 30 }, "<");
+    }).fromTo(".gsap-left", { x: -50 }, { x: 0, stagger: 0.1 }).fromTo(".gsap-right-left", { x: 50 }, { x: 0, stagger: 0.1 }, "<").fromTo(".gsap-hide", { autoAlpha: 0 }, { autoAlpha: 1 }, "<").from(".representative__patch", { width: 0, duration: 2 }, "<").from(".representative__slider__text p", { y: 30 }, "<");
 
     // const footerSplit = new SplitText(".gsap-footer-text-reveal", {
     //     type: "lines",
@@ -233,6 +233,7 @@ $(document).ready(function () {
 
     $('#fullpage').fullpage({
         sectionSelector: '.full-page',
+        anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9'],
 
         afterLoad: function afterLoad(anchorLink, index, direction) {
 
@@ -251,39 +252,38 @@ $(document).ready(function () {
                 $(".nk-mainheader").addClass("header-pin");
                 $(".nk-mainheader").removeClass("header-unpin");
             }
-            if (direction == "down") {
-                if (index == 2) {
 
-                    t2.restart();
-                }
-                if (index == 3) {
+            if (index == 2) {
 
-                    t3.restart();
-                }
-                if (index == 4) {
+                t2.restart();
+            }
+            if (index == 3) {
 
-                    t4.restart();
-                }
-                if (index == 5) {
+                t3.restart();
+            }
+            if (index == 4) {
 
-                    t5.restart();
-                }
-                if (index == 6) {
+                t4.restart();
+            }
+            if (index == 5) {
 
-                    t6.restart();
-                }
-                if (index == 7) {
+                t5.restart();
+            }
+            if (index == 6) {
 
-                    t7.restart();
-                }
-                if (index == 8) {
+                t6.restart();
+            }
+            if (index == 7) {
 
-                    t8.restart();
-                }
-                if (index == 9) {
+                t7.restart();
+            }
+            if (index == 8) {
 
-                    t9.restart();
-                }
+                t8.restart();
+            }
+            if (index == 9) {
+
+                t9.restart();
             }
         }
     });

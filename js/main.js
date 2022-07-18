@@ -164,15 +164,16 @@ $('select').niceSelect();
 //   easing: 'ease-out',
 // })
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-  $("#fileInput").change(function () {
+//   $("#fileInput").change(function () {
 
-    var fileName = $("#fileInput").val().replace(/^.*[\\\/]/, '');
-    $(".upload-content").hide();
-    $(".upload-filename ").find("p").text(fileName);
-  });
-});
+//     let fileName = $("#fileInput").val().replace(/^.*[\\\/]/, '')
+//     $(".upload-content").hide()
+//     $(".upload-filename ").find("p").text(fileName)
+//   })
+// })
+
 
 //hamberger menu
 
@@ -199,19 +200,39 @@ tl.from(".menu nav a", {
 });
 
 $(".stax-hamberg").click(function () {
+  tl.reverse();
   if ($(this).hasClass("menu-toggle-close")) {
     $(this).removeClass("menu-toggle-close");
     setTimeout(function () {
       $(".stax-hamberg__text").text("MENU");
     }, 400);
-    tl.reverse();
+    $.fn.fullpage.setMouseWheelScrolling(true);
+    $.fn.fullpage.setAllowScrolling(true);
   } else {
     $(this).addClass("menu-toggle-close");
     tl.play();
     setTimeout(function () {
       $(".stax-hamberg__text").text("CLOSE");
     }, 300);
+    $.fn.fullpage.setMouseWheelScrolling(false);
+    $.fn.fullpage.setAllowScrolling(false);
   }
+});
+
+$(".js-nav-link a").click(function (e) {
+  // tl.reverse()
+  // e.preventDefault()
+  // window.location.href = "http://localhost:8000/";
+  // if ($(".stax-hamberg").hasClass("menu-toggle-close")) {
+  //     $(".stax-hamberg").removeClass("menu-toggle-close")
+  //     setTimeout(function () {
+  //       $(".stax-hamberg__text").text("MENU")
+  //     }, 400)
+  // }
+  $(".stax-hamberg").trigger("click");
+  // $.fn.fullpage.setMouseWheelScrolling(true);
+  // $.fn.fullpage.setAllowScrolling(true);
+  // $.fn.fullpage.moveTo($(this).attr("data-slide"));
 });
 
 },{}]},{},[1])//# sourceMappingURL=main.js.map
